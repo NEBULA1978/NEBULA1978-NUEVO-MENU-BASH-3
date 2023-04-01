@@ -10,6 +10,15 @@ seleccionar_opcion() {
         "Salir")
             exit 0
             ;;
+            # El código incluye una nueva opción "Comparar numeros" que permite al usuario ingresar un número y luego lo compara con el número 5 utilizando los operadores de comparación disponibles en Bash. Cuando el usuario selecciona esta opción, se muestra el prompt "Escribe un número: " y luego se realiza la comparación correspondiente.
+            #Operadores relacionales
+            #-eq: igual a
+            #-ne: no es igual a
+            #-gt: Mayor a
+            #-ge: Mayor o igual a
+            #-lt: Menor a
+            #-le: Menor o igual a
+
         "Comparar numeros")
             echo -n "Escribe un número: "
             read valor
@@ -56,5 +65,3 @@ while true; do
     clear
     seleccionar_opcion
 done
-
-# El código incluye una nueva opción "Comparar numeros" que permite al usuario ingresar un número y luego lo compara con el número 5 utilizando los operadores de comparación disponibles en Bash. Cuando el usuario selecciona esta opción, se muestra el prompt "Escribe un número: " y luego se realiza la comparación correspondiente.

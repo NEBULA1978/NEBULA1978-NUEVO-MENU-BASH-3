@@ -19,7 +19,7 @@ seleccionar_opcion() {
                 ;;
         esac
         echo "Presione Enter para continuar..."
-        read
+        read 
         break
     done
 }

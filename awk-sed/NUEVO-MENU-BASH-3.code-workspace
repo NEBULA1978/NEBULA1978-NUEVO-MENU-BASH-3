@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../Menu-Bash-25menus-github/menu-bash17comandos-grep-main"
+		},
+		{
+			"path": "../../Menu-Bash-25menus-github/Menu-bash-awk-main"
+		},
+		{
+			"path": "../../Menu-Bash-25menus-github/MENU-LS-main"
+		},
+		{
+			"path": "../../Menu-Bash-25menus-github/menu-read-cut-bash-main"
+		},
+		{
+			"path": "../../Menu-Bash-25menus-github/more-cat-head-tail-sort-wc-cut-awk-uniq-main"
+		},
+		{
+			"path": "../../Menu-Bash-25menus-github/NEBULA1978-Menu-bash-expresiones-regulares-main"
+		},
+		{
+			"path": "../../Menu-Bash-25menus-github/VARIOS-MENUS-BASH-main"
+		}
+	],
+	"settings": {}
+}
