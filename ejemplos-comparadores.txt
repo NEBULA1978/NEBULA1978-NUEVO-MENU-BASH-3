@@ -1,0 +1,144 @@
+# En este caso, se ha utilizado la sintaxis [ p ] || [ q ] en lugar de la expresión p -o q en la línea if [ "$numero" -gt 5 -o "$numero" -lt 10 ]; then, lo cual debería evitar la advertencia de shellcheck. También se ha utilizado la sintaxis [ p ] && [ q ] en lugar de la expresión p -a q en la línea elif [ "$numero" -ge 5 -a "$numero" -le 10 ]; then, lo cual también debería evitar la advertencia de shellcheck.
+
+# (//////////////////////////////////////////)
+# (//////////////////////////////////////////)
+
+# EJEMPLO 2
+
+# ME MARCA ERROR
+# echo "Ingrese un número:"
+# read valor
+
+# if [ "$valor" -gt 5 -o "$valor" -lt 10 ]; then
+#     echo "Tu número es mayor que 5 o menor que 10"
+# elif [ "$valor" -ge 5 -a "$valor" -le 10 ]; then
+#     echo "Tu número está en el rango [5, 10]"
+# elif [ "$valor" -eq 5 -o "$valor" -eq 10 ]; then
+#     echo "Tu número es igual a 5 o a 10"
+# elif [ "$valor" -ne 5 -a "$valor" -ne 10 ]; then
+#     echo "Tu número es distinto a 5 y a 10"
+# fi
+
+# Si el número ingresado es mayor que 5 o menor que 10, se muestra el mensaje "Tu numero es mayor que 5 o menor que 10". Si el número está en el rango de 5 a 10, se muestra el mensaje "Tu numero está en el rango [5, 10]". Si el número es igual a 5 o a 10, se muestra el mensaje "Tu numero es igual a 5 o a 10". Si el número es distinto a 5 y a 10, se muestra el mensaje "Tu numero es distinto a 5 y a 10".
+
+# (//////////////////////////////////////////)
+# (//////////////////////////////////////////)
+
+# EJEMPLO 3
+
+# Me da error
+# Prefer [ p ] && [ q ] as [ p -a q ] is not well defined.shellcheckSC2166
+
+# echo "Ingrese un número:"
+# read -r numero
+
+# if [ "$numero" -gt 10 ]; then
+#     echo "El número es mayor que 10"
+# elif [ "$numero" -eq 10 ]; then
+#     echo "El número es igual a 10"
+# elif [ "$numero" -ge 5 -a "$numero" -le 10 ]; then
+#     echo "El número está en el rango de 5 a 10"
+# elif [ "$numero" -eq 5 -o "$numero" -eq 10 ]; then
+#     echo "El número es igual a 5 o a 10"
+# elif [ "$numero" -ne 5 -a "$numero" -ne 10 ]; then
+#     echo "El número es distinto a 5 y a 10"
+# elif [ "$numero" -gt 0 -a "$numero" -lt 5 ]; then
+#     echo "El número es mayor que 0 y menor que 5"
+# else
+#     echo "El número es negativo"
+# fi
+
+# (//////////////////////////////////////////)
+# (//////////////////////////////////////////)
+
+# EJEMPLO 4
+
+# echo "Ingrese un número:"
+# read -r numero
+
+# if [ "$numero" -gt 5 ] && [ "$numero" -lt 10 ]; then
+#     echo "Tu número está en el rango (5, 10)"
+# elif [ "$numero" -gt 5 ] || [ "$numero" -lt 10 ]; then
+#     echo "Tu número es mayor que 5 o menor que 10"
+# elif [ "$numero" -eq 5 ] || [ "$numero" -eq 10 ]; then
+#     echo "Tu número es igual a 5 o a 10"
+# else
+#     echo "Tu número es distinto a 5 y a 10"
+# fi
+
+# (//////////////////////////////////////////)
+# (//////////////////////////////////////////)
+
+# EJEMPLO 5
+
+# ERROR
+
+# echo "Ingrese un número:"
+# read -r numero
+
+# if [ "$numero" -gt 5 -o "$numero" -lt 10 ]; then
+#     echo "Tu número es mayor que 5 o menor que 10"
+# elif [ "$numero" -ge 5 -a "$numero" -le 10 ]; then
+#     echo "Tu número está en el rango [5, 10]"
+# elif [ "$numero" -eq 5 -o "$numero" -eq 10 ]; then
+#     echo "Tu número es igual a 5 o a 10"
+# elif [ "$numero" -ne 5 -a "$numero" -ne 10 ]; then
+#     echo "Tu número es distinto a 5 y a 10"
+# else
+#     echo "El número no cumple ninguna de las comparaciones especificadas"
+# fi
+
+# (//////////////////////////////////////////)
+# (//////////////////////////////////////////)
+
+# EJEMPLO 6
+
+# echo "Ingrese el número de la opción deseada:"
+# for i in "${!opciones[@]}"; do
+#     echo "$i. ${opciones[$i]%%|*}" # Imprimimos el índice de la opción y su nombre (sin el comando correspondiente).
+# done
+# read opcion
+
+# case "$opcion" in
+#     [0-9]*)
+#         if [ "$opcion" -ge 0 ] && [ "$opcion" -lt "${#opciones[@]}" ]; then
+#             clear
+#             comando="${opciones[$opcion]#*|}" # Obtenemos el comando correspondiente a la opción seleccionada.
+#             eval "$comando"                   # Ejecutamos el comando.
+#             echo ""
+#             echo "Presione Enter para continuar..."
+#             read
+#         else
+#             echo "Opción inválida. Presione Enter para continuar..."
+#             read
+#         fi
+#         ;;
+#     *)
+#         echo "Opción inválida. Presione Enter para continuar..."
+#         read
+#         ;;
+# esac
+
+# En este caso, se ha utilizado la sintaxis [ p ] && [ q ] en lugar de la expresión p -a q en la línea if [ "$opcion" -ge 0 ] && [ "$opcion" -lt "${#opciones[@]}" ]; then, lo cual debería evitar la advertencia de shellcheck.
+
+# Recuerda que esta es una recomendación para mejorar la legibilidad y reducir ambigüedades en el código, pero la sintaxis p -a q también es válida en Bash y es utilizada comúnmente en muchos scripts de shell.
+
+# (//////////////////////////////////////////)
+# (//////////////////////////////////////////)
+
+# EJEMPLO 7
+
+# Recuerda que esta es una recomendación para mejorar la legibilidad y reducir ambigüedades en el código, pero la sintaxis p -a q y p -o q también son válidas en Bash y son utilizadas comúnmente en muchos scripts de shell.
+
+# echo "Ingrese un número:"
+# read -r numero
+
+# if [ "$numero" -gt 10 ]; then
+#     echo "El número es mayor que 10"
+# elif [ "$numero" -eq 10 ]; then
+#     echo "El número es igual a 10"
+# elif [ "$numero" -ge 5 ]; then
+#     echo "El número está en el rango de 5 a 10"
+# else
+#     echo "El número es menor que 5"
+# fi
