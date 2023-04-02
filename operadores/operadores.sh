@@ -255,8 +255,12 @@ igual=$([ "$a" = "$b" ] && echo "True" || echo "False")
 diferente=$([ "$a" != "$b" ] && echo "True" || echo "False")
 mayor=$([ "$a" \> "$b" ] && echo "True" || echo "False")
 menor=$([ "$a" \< "$b" ] && echo "True" || echo "False")
-mayor_igual=$([ "$a" \>= "$b" ] && echo "True" || echo "False")
-menor_igual=$([ "$a" \<= "$b" ] && echo "True" || echo "False")
+
+mayor_igual=$([ "$a" -ge "$b" ] && echo "True" || echo "False")
+menor_igual=$([ "$a" -le "$b" ] && echo "True" || echo "False")
+# NO BIEN
+# mayor_igual=$([ "$a" \>= "$b" ] && echo "True" || echo "False")
+# menor_igual=$([ "$a" \<= "$b" ] && echo "True" || echo "False")
 
 echo "¿Es $a igual a $b ? $igual"
 echo "¿Es $a diferente a $b ? $diferente"
